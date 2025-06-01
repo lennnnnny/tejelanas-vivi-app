@@ -1,0 +1,100 @@
+/* src/components/ProductCarousel/ProductCarousel.module.css */
+.carouselContainer {
+  width: 100%;
+  max-width: 1200px; /* Ancho máximo para el carrusel */
+  margin: 40px auto;
+  padding: 0 20px; /* Padding para evitar que las flechas queden pegadas al borde */
+  box-sizing: border-box; /* Asegura que el padding se incluya en el width */
+}
+
+.carouselImage {
+  width: 100%;
+  height: 300px; /* Altura fija para las imágenes del carrusel */
+  object-fit: cover; /* Recorta la imagen para que cubra el área */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slideContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 30px; /* Espacio para los puntos de paginación */
+}
+
+.imageCaption {
+  margin-top: 15px;
+  font-size: 1.1em;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Estilos específicos de Swiper (puedes personalizarlos aún más) */
+/* Flechas de navegación */
+.carouselContainer :global(.swiper-button-prev),
+.carouselContainer :global(.swiper-button-next) {
+  color: #3f51b5; /* Color de las flechas */
+  top: 50%; /* Centra verticalmente */
+  transform: translateY(-50%);
+  font-size: 2.5em; /* Tamaño de las flechas */
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.carouselContainer :global(.swiper-button-prev):hover,
+.carouselContainer :global(.swiper-button-next):hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.carouselContainer :global(.swiper-button-prev) {
+  left: 10px; /* Posición izquierda */
+}
+
+.carouselContainer :global(.swiper-button-next) {
+  right: 10px; /* Posición derecha */
+}
+
+/* Puntos de paginación */
+.carouselContainer :global(.swiper-pagination-bullet) {
+  background: #ccc; /* Color de los puntos inactivos */
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carouselContainer :global(.swiper-pagination-bullet-active) {
+  background: #3f51b5; /* Color de los puntos activos */
+  transform: scale(1.2);
+}
+
+.carouselContainer :global(.swiper-pagination) {
+  bottom: 0px !important; /* Ajusta la posición de la paginación */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .carouselContainer {
+        padding: 0 5px; /* Reduce padding en móviles */
+    }
+    .carouselImage {
+        height: 200px; /* Reduce la altura en móviles */
+    }
+    .carouselContainer :global(.swiper-button-prev),
+    .carouselContainer :global(.swiper-button-next) {
+        font-size: 1.8em; /* Flechas más pequeñas */
+        width: 40px;
+        height: 40px;
+    }
+    .carouselContainer :global(.swiper-button-prev) {
+        left: 5px;
+    }
+    .carouselContainer :global(.swiper-button-next) {
+        right: 5px;
+    }
+}

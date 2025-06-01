@@ -1,0 +1,52 @@
+/* src/components/Accordion/Accordion.module.css */
+.accordionItem {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  color: #333;
+}
+
+.accordionHeader {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #f5f5f5;
+  border: none;
+  text-align: left;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.accordionHeader:hover {
+  background-color: #eee;
+}
+
+.accordionIcon {
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+.accordionContent {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+  padding: 0 20px; /* Padding solo cuando está abierto */
+}
+
+.accordionContent.open {
+  max-height: 200px; /* Altura máxima arbitraria, ajustar según contenido */
+  opacity: 1;
+  padding: 15px 20px;
+}
+
+.accordionContent p {
+  margin: 0;
+  color: #555;
+}
