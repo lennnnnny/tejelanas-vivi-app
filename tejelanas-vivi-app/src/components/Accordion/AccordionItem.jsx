@@ -1,4 +1,3 @@
-// src/components/Accordion/AccordionItem.jsx
 import React, { useState } from 'react';
 import styles from './Accordion.module.css';
 

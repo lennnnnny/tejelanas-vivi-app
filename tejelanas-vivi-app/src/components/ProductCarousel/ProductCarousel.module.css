@@ -1,16 +1,15 @@
-/* src/components/ProductCarousel/ProductCarousel.module.css */
 .carouselContainer {
   width: 100%;
-  max-width: 1200px; /* Ancho máximo para el carrusel */
+  max-width: 1200px;
   margin: 40px auto;
-  padding: 0 20px; /* Padding para evitar que las flechas queden pegadas al borde */
-  box-sizing: border-box; /* Asegura que el padding se incluya en el width */
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .carouselImage {
   width: 100%;
-  height: 300px; /* Altura fija para las imágenes del carrusel */
-  object-fit: cover; /* Recorta la imagen para que cubra el área */
+  height: 300px;
+  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -20,7 +19,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-bottom: 30px; /* Espacio para los puntos de paginación */
+  padding-bottom: 30px;
 }
 
 .imageCaption {
@@ -30,14 +29,12 @@
   font-weight: bold;
 }
 
-/* Estilos específicos de Swiper (puedes personalizarlos aún más) */
-/* Flechas de navegación */
 .carouselContainer :global(.swiper-button-prev),
 .carouselContainer :global(.swiper-button-next) {
-  color: #3f51b5; /* Color de las flechas */
-  top: 50%; /* Centra verticalmente */
+  color: #3f51b5;
+  top: 50%;
   transform: translateY(-50%);
-  font-size: 2.5em; /* Tamaño de las flechas */
+  font-size: 2.5em;
   width: 50px;
   height: 50px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -52,16 +49,15 @@
 }
 
 .carouselContainer :global(.swiper-button-prev) {
-  left: 10px; /* Posición izquierda */
+  left: 10px;
 }
 
 .carouselContainer :global(.swiper-button-next) {
-  right: 10px; /* Posición derecha */
+  right: 10px;
 }
 
-/* Puntos de paginación */
 .carouselContainer :global(.swiper-pagination-bullet) {
-  background: #ccc; /* Color de los puntos inactivos */
+  background: #ccc;
   opacity: 1;
   width: 10px;
   height: 10px;
@@ -69,32 +65,31 @@
 }
 
 .carouselContainer :global(.swiper-pagination-bullet-active) {
-  background: #3f51b5; /* Color de los puntos activos */
+  background: #3f51b5;
   transform: scale(1.2);
 }
 
 .carouselContainer :global(.swiper-pagination) {
-  bottom: 0px !important; /* Ajusta la posición de la paginación */
+  bottom: 0px !important;
 }
 
-/* Responsividad */
 @media (max-width: 768px) {
-    .carouselContainer {
-        padding: 0 5px; /* Reduce padding en móviles */
-    }
-    .carouselImage {
-        height: 200px; /* Reduce la altura en móviles */
-    }
-    .carouselContainer :global(.swiper-button-prev),
-    .carouselContainer :global(.swiper-button-next) {
-        font-size: 1.8em; /* Flechas más pequeñas */
-        width: 40px;
-        height: 40px;
-    }
-    .carouselContainer :global(.swiper-button-prev) {
-        left: 5px;
-    }
-    .carouselContainer :global(.swiper-button-next) {
-        right: 5px;
-    }
+  .carouselContainer {
+    padding: 0 5px;
+  }
+  .carouselImage {
+    height: 200px;
+  }
+  .carouselContainer :global(.swiper-button-prev),
+  .carouselContainer :global(.swiper-button-next) {
+    font-size: 1.8em;
+    width: 40px;
+    height: 40px;
+  }
+  .carouselContainer :global(.swiper-button-prev) {
+    left: 5px;
+  }
+  .carouselContainer :global(.swiper-button-next) {
+    right: 5px;
+  }
 }

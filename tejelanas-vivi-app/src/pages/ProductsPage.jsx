@@ -1,30 +1,28 @@
-// src/pages/ProductsPage.jsx
 import React, { useEffect, useState } from 'react';
 import ServiceCard from '../components/ServiceCard/ServiceCard.jsx';
 import { getProductsServices } from '../services/api.js';
 
 function ProductsPage() {
-  const [items, setItems] = useState([]); // Usaremos 'items' para productos y servicios combinados
+  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProductsAndServices = async () => {
       try {
-        const data = await getProductsServices(); // data ahora es { productos: [...], servicios: [...] }
-        
-        // Combina productos y servicios, mapeando a un formato común para ServiceCard
+        const data = await getProductsServices();
+
         const combinedItems = [];
 
         if (data.productos) {
           data.productos.forEach(p => {
             combinedItems.push({
-              id: `prod-${p.id}`, // Prefijo para asegurar IDs únicos entre productos y servicios
-              image: p.imgs && p.imgs.length > 0 ? p.imgs[0] : 'https://via.placeholder.com/300x180?text=Producto', // Toma la primera imagen
+              id: `prod-${p.id}`,
+              image: p.imgs && p.imgs.length > 0 ? p.imgs[0] : 'https://via.placeholder.com/300x180?text=Producto',
               title: p.nombre,
               description: p.descripcion,
-              productName: p.nombre, // Para el formulario de contacto
-              type: 'producto' // Puedes usar esto si necesitas diferenciar
+              productName: p.nombre,
+              type: 'producto'
             });
           });
         }
@@ -32,16 +30,16 @@ function ProductsPage() {
         if (data.servicios) {
           data.servicios.forEach(s => {
             combinedItems.push({
-              id: `serv-${s.id}`, // Prefijo para asegurar IDs únicos
-              image: s.imgs && s.imgs.length > 0 ? s.imgs[0] : 'https://via.placeholder.com/300x180?text=Servicio', // Toma la primera imagen
+              id: `serv-${s.id}`,
+              image: s.imgs && s.imgs.length > 0 ? s.imgs[0] : 'https://via.placeholder.com/300x180?text=Servicio',
               title: s.nombre,
-              description: `Ubicación: ${s.ubicacion}, Fecha: ${s.fecha}, Cupos: ${s.cupos}`, // Construye la descripción
-              productName: s.nombre, // Para el formulario de contacto
-              type: 'servicio' // Puedes usar esto si necesitas diferenciar
+              description: `Ubicación: ${s.ubicacion}, Fecha: ${s.fecha}, Cupos: ${s.cupos}`,
+              productName: s.nombre,
+              type: 'servicio'
             });
           });
         }
-        
+
         setItems(combinedItems);
         setLoading(false);
       } catch (err) {
@@ -54,7 +52,7 @@ function ProductsPage() {
   }, []);
 
   if (loading) {
-    return <p style={{ textAlign: 'center', marginTop: '100px', fontSize: '1.2em' }}>Cargando nuestros productos y servicios...</p>;
+    return <p style={{ textAlign: 'center', marginTop: '100px', fontSize: '1.2em', color: 'var(--color-text)' }}>Cargando nuestros productos y servicios...</p>;
   }
 
   if (error) {
@@ -62,9 +60,9 @@ function ProductsPage() {
   }
 
   return (
-    <div style={{ paddingTop: '80px', paddingBottom: '40px' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '30px', fontSize: '2.5em', color: '#3f51b5' }}>Nuestros Productos y Servicios</h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}> {/* Añadido 'gap' para mejor espaciado */}
+    <div style={{ paddingTop: '80px', paddingBottom: '40px', maxWidth: '1200px', margin: '0 auto' }}>
+      <h2 style={{ textAlign: 'center', fontSize: '2.8em', color: 'var(--color-secondary)', marginBottom: '40px', textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}>Nuestros Productos y Servicios</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         {items.length > 0 ? (
           items.map(item => (
             <ServiceCard
@@ -73,10 +71,11 @@ function ProductsPage() {
               title={item.title}
               description={item.description}
               productName={item.productName}
+              type={item.type}
             />
           ))
         ) : (
-          <p style={{ textAlign: 'center', fontSize: '1.1em' }}>No hay productos o servicios disponibles en este momento.</p>
+          <p style={{ textAlign: 'center', fontSize: '1.1em', color: 'var(--color-text)' }}>No hay productos o servicios disponibles en este momento.</p>
         )}
       </div>
     </div>

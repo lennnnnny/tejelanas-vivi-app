@@ -1,29 +1,27 @@
-// src/pages/HomePage.jsx
 import React from 'react';
-import ProductCarousel from '../components/ProductCarousel/ProductCarousel'; // Importa tu carrusel
-// Si tienes imágenes en tu carpeta assets, impórtalas aquí
-// import lana1 from '../assets/lana1.jpg';
-// import vellon2 from '../assets/vellon2.jpg';
-// import taller3 from '../assets/taller3.jpg';
+import ProductCarousel from '../components/ProductCarousel/ProductCarousel';
+
+import lanasNaturalesImg from '../assets/carousel/lanas-naturales.jpg';
+import vellonArtesanalImg from '../assets/carousel/vellon-artesanal.jpg';
+import tallerCrochetImg from '../assets/carousel/taller-crochet.jpg';
+import insumosTejidoImg from '../assets/carousel/insumos-tejido.jpg';
 
 function HomePage() {
-  // Datos de ejemplo para el carrusel.
-  // En un proyecto real, estas URLs podrían venir de una API o CMS.
   const carouselImages = [
-    { src: 'https://via.placeholder.com/800x400?text=Lanas+Naturales+Premium', alt: 'Variedad de lanas naturales', caption: 'Lanas 100% naturales para tus proyectos.' },
-    { src: 'https://via.placeholder.com/800x400?text=Vellon+Artesanal', alt: 'Suave vellón de oveja', caption: 'Vellón de oveja para hilado y fieltro.' },
-    { src: 'https://via.placeholder.com/800x400?text=Taller+de+Crochet', alt: 'Taller de crochet en progreso', caption: 'Aprende nuevas técnicas en nuestros talleres.' },
-    { src: 'https://via.placeholder.com/800x400?text=Insumos+Variados', alt: 'Herramientas y accesorios de tejido', caption: 'Todo lo que necesitas para tejer.' },
+    { src: lanasNaturalesImg, alt: 'Lanas 100% naturales de colores suaves', caption: 'Lanas 100% naturales para tus proyectos.' },
+    { src: vellonArtesanalImg, alt: 'Vellón de oveja suave y sin procesar', caption: 'Vellón de oveja para hilado y fieltro.' },
+    { src: tallerCrochetImg, alt: 'Personas aprendiendo a tejer en un taller de crochet', caption: 'Aprende nuevas técnicas en nuestros talleres.' },
+    { src: insumosTejidoImg, alt: 'Variedad de insumos para tejer: lanas, agujas, ganchos', caption: 'Todo lo que necesitas para tejer.' },
   ];
 
   return (
-    <div style={{ paddingTop: '80px', textAlign: 'center' }}> {/* Ajusta el padding superior por el Navbar fijo */}
-      <h2>Bienvenido a Tejelanas Vivi</h2>
-      <p>Tu lugar para insumos de tejido, lanas naturales y talleres de crochet en Laguna de Zapallar.</p>
+    <div style={{ paddingTop: '80px', textAlign: 'center' }}>
+      <h2 style={{ fontSize: '2.8em', color: 'var(--color-secondary)', marginBottom: '20px', textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}>Bienvenido a Tejelanas Vivi</h2>
+      <p style={{ fontSize: '1.3em', color: 'var(--color-text)', maxWidth: '800px', margin: '0 auto 40px' }}>
+        Tu lugar para insumos de tejido, lanas naturales y talleres de crochet en Laguna de Zapallar.
+      </p>
 
-      <ProductCarousel images={carouselImages} /> {/* Integra el carrusel aquí */}
-
-      {/* Puedes añadir más secciones aquí si lo deseas */}
+      <ProductCarousel images={carouselImages} />
     </div>
   );
 }

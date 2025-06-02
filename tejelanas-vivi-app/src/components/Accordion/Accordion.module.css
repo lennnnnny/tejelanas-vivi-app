@@ -1,4 +1,3 @@
-/* src/components/Accordion/Accordion.module.css */
 .accordionItem {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -37,11 +36,11 @@
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
-  padding: 0 20px; /* Padding solo cuando está abierto */
+  padding: 0 20px;
 }
 
 .accordionContent.open {
-  max-height: 200px; /* Altura máxima arbitraria, ajustar según contenido */
+  max-height: 200px;
   opacity: 1;
   padding: 15px 20px;
 }
